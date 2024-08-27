@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO list</title>
+    <style>
+        body {
+            color: darkgreen;
+            font-family: Impact;
+            background-color: aquamarine;
+        }
+
+        .todo {
+            margin: 10rem;
+            padding: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            margin: 2rem ;
+            font-size: large;
+        }
+
+        #add-task {
+            background-color: rgb(218, 252, 167);
+            border: double;
+            border-radius: 3px;
+            border-color: forestgreen;
+        }
+
+        #new-task {
+            background-color: rgb(218, 252, 167);
+            border: double;
+            border-radius: 3px;
+            border-color: forestgreen;
+
+        }
+        #task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #task-list li {
+            padding: 10px;
+            border-bottom: 1px ;
+            color: rgb(16, 180, 71);
+        }
+        #task-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo">
+        <h1>TO DO LIST</h1>
+        <input type="text" id="new-task" placeholder="Add new task">
+        <button id="add-task">Add</button>
+        <ul id="task-list"></ul>
+    </div>
+    
+    <script>
+        const newTaskInput = document.getElementById("new-task");
+        const addTaskButton = document.getElementById("add-task");
+        const taskList = document.getElementById("task-list");
+
+        addTaskButton.addEventListener("click", () => {
+            const newTaskText = newTaskInput.value.trim();
+
+            if (newTaskText != ""){
+                const newTaskListItem = document.createElement("li");
+                newTaskListItem.textContent = newTaskText;
+                taskList.appendChild(newTaskListItem);
+
+                newTaskInput.value = "";
+            }
+        });
+
+    </script>
+</body>
+</html>
